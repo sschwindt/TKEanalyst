@@ -1,4 +1,4 @@
-name: flussenv
+name: tkeenv
 channels:
   - conda-forge
   - defaults
@@ -6,27 +6,11 @@ channels:
   - anaconda
 
 dependencies:
-  - python>=3.8
+  - python>=3.6
   - pip
-  - tabulate
   # scientific python
   - numpy
   - pandas
   # plotting
   - matplotlib
   - plotly
-  # geospatial python
-  - alphashape
-  - earthpy
-  - gdal
-  - geopandas
-  - geojson
-  - h5py
-  - laspy
-  - mapclassify
-  - networkx
-  - pyshp
-  - rasterio
-  - rasterstats
-  - shapely
-  - tk

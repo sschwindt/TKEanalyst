@@ -18,9 +18,9 @@ URL = "https://TKEanalyst.readthedocs.io/"
 EMAIL = "schwindt.water@gmail.com"
 AUTHOR = "sschwindt"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "1.0.0"
+VERSION = "1.0.3"
 LICENSE = "BSD License"
-KEYWORDS = "acoustic doppler velocimetry"
+KEYWORDS = "acoustic doppler velocimetry, ADV, Vectrino, turbulent kinetic energy, spikes, despiking"
 
 # What packages are required for this module to be executed?
 if "READTHEDOCS" in os.environ:
@@ -32,16 +32,6 @@ else:
         "numpy",
         "openpyxl",
         "pandas",
-        # build updates from 2021-11-12
-        "affine",
-        "attrs",
-        "click",
-        "cligj",
-        "cycler",
-        "kiwisolver",
-        "python-dateutil",
-        "setuptools",
-        "traitlets",
     ]
 
 # What packages are optional?

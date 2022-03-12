@@ -35,7 +35,7 @@ autodoc_mock_imports = [
 
 project = u"TKE Analyst"
 slug = re.sub(r"\W+", "-", project.lower())
-version = "1.0.0"
+version = "1.0.3"
 release = "latest"
 author = u"sschwindt"
 copyright = author

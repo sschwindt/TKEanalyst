@@ -9,8 +9,8 @@ import sys
 import os
 # import particular Python libraries
 try:
-    import pandas as pd
-    import numpy as np
+    import pandas as _pd
+    import numpy as _np
 except ImportError as e:
     print(e.__class__.__name__ + ": " + e.message)
     raise ImportError("Could not import numpy and pandas. {0}".format(e))
@@ -22,7 +22,7 @@ from flowstat import flowstat
 from rmspike import rmspike
 
 
-def load_input_defs(file_name=SCRIPT_DIR+"input.xlsx"):
+def load_input_defs(file_name="input.xlsx"):
     """loads provided input file name as pandas dataframe
 
     Args:
@@ -31,7 +31,7 @@ def load_input_defs(file_name=SCRIPT_DIR+"input.xlsx"):
     Returns:
         (dict): user input of input.xlsx (or costum file, if provided)
     """
-    input_xlsx_df = pd.read_excel(file_name, header=0, index_col=0)
+    input_xlsx_df = _pd.read_excel(file_name, header=0, index_col=0)
     return {
         "folder name": input_xlsx_df["VALUE"]["Input folder directory"],
         "file type": input_xlsx_df["VALUE"]["Data file ending"],
@@ -53,14 +53,14 @@ def read_vna(vna_file_name):
         vna_file_name (str): name of a vna file, such as __8_16.5_6_T3.vna
 
     Returns:
-        pd.DataFrame
+        _pd.DataFrame
     """
     col_names = ["skip1", "time (s)", "sample no.", "skip2",
                  "u (m/s)", "v (m/s)", "w1 (m/s)", "w2 (m/s)",
                  "ampl. x (dB)", "ampl. y (dB)", "ampl. z1 (dB)", "ampl. z2 (dB)",
                  "SNR x", "SNR y", "SNR z1", "SNR z2",
                  "corr x", "corr y", "corr z1", "corr z2"]
-    return pd.read_csv(vna_file_name,
+    return _pd.read_csv(vna_file_name,
                        sep="\s+",
                        header=None,
                        names=col_names,
@@ -86,7 +86,7 @@ def vna_file_name2coordinates(file_ending, vna_file_name):
         except ValueError:
             logging.warning("WARNING: Could not convert {0} to coordinate in file {1}".format(
                 str(coord), vna_file_name))
-            xyz_list[i] = np.nan
+            xyz_list[i] = _np.nan
     return xyz_list
 
 
@@ -99,14 +99,14 @@ def get_data_info(file_ending, folder_name="data/test-example"):
         folder_name (str): name of the test (experiment) to analyze
 
     Returns:
-        pd.DataFrame with row names corresponding to file names ending on .vna (or otherwise defined in input.xlsx),
+        _pd.DataFrame with row names corresponding to file names ending on .vna (or otherwise defined in input.xlsx),
         and columns X, Y, Z in meters
     """
     # get vna file names
     vna_file_names = [f for f in os.listdir(r"" + folder_name) if f.endswith(file_ending)]
 
     # construct dataframe with x-y-z positions of the probe
-    probe_position_df = pd.DataFrame(
+    probe_position_df = _pd.DataFrame(
         data=[vna_file_name2coordinates(file_ending, vna_fn) for vna_fn in vna_file_names],
         index=[s.strip(file_ending) for s in vna_file_names],
         columns=["x (m)", "y (m)", "z (m)"]
@@ -177,7 +177,7 @@ def build_stats_summary(vna_stats_dict, experiment_info, profile_type, bulk_velo
                 column_headers.append(par)
     column_headers.extend(["u norm. (-)", "x norm. (-)", "TKE norm. (-)", "TKE 2d norm. (-)"])
 
-    return pd.DataFrame(
+    return _pd.DataFrame(
         data=data,
         columns=column_headers,
         index=list(vna_stats_dict.keys())

@@ -12,18 +12,29 @@ Make sure to understand the basics of building a PyPI package ([example tutorial
 
 ## Build and push test version
 
-If you made changes in *setup.py*, run first (and troubleshoot any error message):
+SHORT VERSION:
 
 ```
 python setup.py develop
+twine upload dist/*
 ```
+
+TEST:
+
+```
+python -m venv test_env
+source test_env/bin/activate
+pip install TKEanalyst
+import TKEanalyst
+```
+
 
 Before adding a new version of *TKEanalyst*, please inform about the severity and version numbering semantics on [python.org](https://www.python.org/dev/peps/pep-0440/).
 
 1. `cd` to your local *TKEanalyst* folder (in *Terminal*)
 1. Create *TKEanalyst* locally 
 	* Linux (in Terminal): `sudo python setup.py sdist bdist_wheel`
-	* Window (in Anaconda Prompt with flussenv): `python setup.py sdist bdist_wheel`
+	* Windows (in Anaconda Prompt with flussenv): `python setup.py sdist bdist_wheel`
 1. Upload the (new version) to TestPyPI (with your TestPyPI account):
 	* `twine upload --skip-existing --repository-url https://test.pypi.org/legacy/ dist/*`
 	* If any error occurs, fix it and rebuild the package (previous step).

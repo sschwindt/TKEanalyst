@@ -17,7 +17,7 @@ Next, with Python installed and the code living on your computer:
 
     import TKEanalyst
     input_file = r"C:\\my\\project\\adv\\input.xlsx"
-    TKEanalyst.profile_analyst.process_adv_files(input_file)
+    TKEanalyst.process_adv_files(input_file)
 
 - Alternatively:
     + run the code: ``python profile_analyst.py "C:/dir/to/input.xlsx``)
@@ -43,7 +43,7 @@ For example, consider your data lives in a folder called ``C:\my-project\TKEanal
 
     import TKEanalyst
     input_file = r"C:\\my-project\\TKEanalysis\\test01\\input.xlsx"
-    TKEanalyst.profile_analyst.process_adv_files(input_file)
+    TKEanalyst.process_adv_files(input_file)
 
 The definitions in the above-shown ``input.xlsx`` define x-normalization as a function of a wood log length, for example, a wood log diameter of 0.114 m.
 
