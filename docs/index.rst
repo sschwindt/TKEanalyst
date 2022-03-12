@@ -4,7 +4,7 @@
 About
 =====
 
-This Python3 code aids in analyzing raw measurements with an Acoustic Doppler Velocimeter (ADV) producing ``*.vno`` and ``*.vna`` files. It detects and removes spikes according to `Nikora and Goring (1998) <https://doi.org/10.1061/(ASCE)0733-9429(1998)124:6(630)>`_ and  `Goring and Nikora (2002) <https://doi.org/10.1061/(ASCE)0733-9429(2002)128:1(117)>`_.
+This Python3 code aids in analyzing raw measurements with an Acoustic Doppler Velocimeter (ADV) producing, for example,``*.vno`` and ``*.vna`` files (should also work with other file types, though not yet tested). It detects and removes spikes according to `Nikora and Goring (1998) <https://doi.org/10.1061/(ASCE)0733-9429(1998)124:6(630)>`_ and  `Goring and Nikora (2002) <https://doi.org/10.1061/(ASCE)0733-9429(2002)128:1(117)>`_.
 
 The code was originally developed in Matlab(R) at the `Nepf Environmental Fluid Mechanics Laboratory <https://nepf.mit.edu/>`_ (`Massachusetts Institute of Technology <https://web.mit.edu/>`_).
 
