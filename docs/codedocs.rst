@@ -8,33 +8,33 @@ The following sections provide details of functions, their arguments, and output
 config.py
 ---------
 
-.. automodule:: config
+.. automodule:: TKEanalyst.config
     :members:
 
 flowstat.py
 -----------
 
-.. automodule:: flowstat
+.. automodule:: TKEanalyst.flowstat
     :members:
 
 profile_analyst.py
 ------------------
 
-.. automodule:: profile_analyst
+.. automodule:: TKEanalyst.profile_analyst
     :members:
 
 
 profile_plotter.py
 ------------------
 
-.. automodule:: profile_plotter
+.. automodule:: TKEanalyst.profile_plotter
     :members:
 
 
 rmspike.py
 ----------
 
-.. automodule:: rmspike
+.. automodule:: TKEanalyst.rmspike
     :members:
 
 
